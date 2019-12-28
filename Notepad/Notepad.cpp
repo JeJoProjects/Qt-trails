@@ -1,14 +1,16 @@
 #include "Notepad.h"
 #include "./ui_Notepad.h"
 
-MainWindow::MainWindow(QWidget *parent)
+Notepad::Notepad(QWidget *parent)
     : QMainWindow{ parent }
     , ui{ new Ui::MainWindow }
+    , mCurrentFile{""}
 {
     ui->setupUi(this);
+    this->setCentralWidget(ui->textEdit);
 }
 
-MainWindow::~MainWindow()
+Notepad::~Notepad()
 {
     delete ui;
 }

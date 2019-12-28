@@ -24,6 +24,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #    endif()
 #endif()
 
+find_package(Qt5PrintSupport REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
@@ -45,3 +46,4 @@ endif()
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Notepad)
 
 target_link_libraries(Notepad PRIVATE Qt5::Widgets)
+target_link_libraries(Notepad PRIVATE Qt5::PrintSupport)
