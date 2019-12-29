@@ -85,3 +85,27 @@ void Notepad::on_actionExit_triggered()
     QApplication::quit();
 }
 
+void Notepad::on_actionCopy_triggered()
+{
+    this->ui->textEdit->copy();
+}
+
+void Notepad::on_actionPaste_triggered()
+{
+    this->ui->textEdit->paste();
+}
+
+void Notepad::on_actionCut_triggered()
+{
+    this->ui->textEdit->cut();
+}
+
+void Notepad::on_actionUndo_triggered()
+{
+    this->ui->textEdit->undo();
+}
+
+void Notepad::on_actionRedo_triggered()
+{
+   this->ui->textEdit->redo();
+}

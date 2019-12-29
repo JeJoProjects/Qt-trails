@@ -57,7 +57,7 @@
     <addaction name="actionCopy"/>
     <addaction name="actionPaste"/>
     <addaction name="actionCut"/>
-    <addaction name="actionUndu"/>
+    <addaction name="actionUndo"/>
     <addaction name="actionRedo"/>
    </widget>
    <addaction name="menuFile"/>
@@ -119,26 +119,49 @@
    </property>
   </action>
   <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Images/Icons/Copy.png</normaloff>:/Images/Icons/Copy.png</iconset>
+   </property>
    <property name="text">
     <string>Copy</string>
    </property>
   </action>
   <action name="actionPaste">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Images/Icons/Paste.png</normaloff>:/Images/Icons/Paste.png</iconset>
+   </property>
    <property name="text">
     <string>Paste</string>
    </property>
   </action>
   <action name="actionCut">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Images/Icons/Cut.png</normaloff>:/Images/Icons/Cut.png</iconset>
+   </property>
    <property name="text">
     <string>Cut</string>
    </property>
   </action>
-  <action name="actionUndu">
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Images/Icons/Undo.png</normaloff>:/Images/Icons/Undo.png</iconset>
+   </property>
    <property name="text">
-    <string>Undu</string>
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>Undo</string>
    </property>
   </action>
   <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="Resources.qrc">
+     <normaloff>:/Images/Icons/Redo.png</normaloff>:/Images/Icons/Redo.png</iconset>
+   </property>
    <property name="text">
     <string>Redo</string>
    </property>
