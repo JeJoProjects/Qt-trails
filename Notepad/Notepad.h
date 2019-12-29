@@ -18,7 +18,7 @@ class Notepad final : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Notepad(QWidget *parent = {nullptr});
+    explicit Notepad(QWidget *parent = {});
     ~Notepad();
 
 private:
