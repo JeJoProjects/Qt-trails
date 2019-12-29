@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QFile>
-#include <QFileDevice>
+#include <QFileDialog>
 #include <QTextStream>
 #include <QMessageBox>
 #include <QPrinter>
@@ -20,6 +20,19 @@ class Notepad final : public QMainWindow
 public:
     explicit Notepad(QWidget *parent = {});
     ~Notepad();
+
+private slots:
+    void on_actionNew_triggered();
+
+    void on_actionOpen_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_actionSave_As_triggered();
+
+    void on_actionPrint_triggered();
+
+    void on_actionExit_triggered();
 
 private:
     Ui::MainWindow *ui;
