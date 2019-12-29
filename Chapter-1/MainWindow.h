@@ -22,7 +22,7 @@ public:
     ~MainWindow();
 
 public slots:
-    void addTask();
+    void addTask() const noexcept;
 
 
 };
