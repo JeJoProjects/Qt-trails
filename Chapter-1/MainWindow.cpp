@@ -4,6 +4,7 @@
 
 // Qt headers
 #include <QDebug>
+#include <QInputDialog>
 
 // C++  headers
 
@@ -27,8 +28,16 @@ MainWindow::~MainWindow() noexcept
 
 void MainWindow::addTask() noexcept
 {
-  qDebug() << "Adding new task\n";
-  mTasks.push_back(new Task{"Untitled task"});
-  // the ownership of the newly created task is transferred to tasksLayout
-  this->ui->tasksLayout->addWidget(mTasks.back());
+  bool okay{false};
+  const QString name = QInputDialog::getText(
+        this, tr("Add task"), tr("Task name"),
+        QLineEdit::Normal, tr("Untitled task"), &okay);
+
+  if(okay && !name.isEmpty())
+  {
+      qDebug() << "Adding new task\n";
+      mTasks.push_back(new Task{name});
+      // the ownership of the newly created task is transferred to tasksLayout
+      this->ui->tasksLayout->addWidget(mTasks.back());
+  }
 }
