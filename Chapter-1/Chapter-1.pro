@@ -24,16 +24,14 @@ TEMPLATE = app
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-SOURCES +=  main.cpp \
+SOURCES +=  Main.cpp \
             MainWindow.cpp \
             Task.cpp
 
 HEADERS +=  MainWindow.h \
-    Task.h
+            Task.h
 
 FORMS   +=  MainWindow.ui \
-    Task.ui
+            Task.ui
 
-DISTFILES += \
-    QMLTest.qml
 

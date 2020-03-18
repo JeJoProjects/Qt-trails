@@ -1,13 +1,18 @@
-#pragma once
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
+// Qt headers
 #include <QMainWindow>
 
+// C++  headers
+
+// forward declarations
 namespace Ui {
     class MainWindow;
 }
 
 
-class MainWindow : public QMainWindow
+class MainWindow final : public QMainWindow
 {
     /*This macro allows the class to define its own signals/slots
      * and more globally Qt's meta-object system.
@@ -18,12 +23,16 @@ private:
     Ui::MainWindow *ui;
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    // constructors and destructors
+    explicit MainWindow(QWidget *parent = nullptr) noexcept;
+    ~MainWindow() noexcept;
+    Q_DISABLE_COPY_MOVE(MainWindow);
 
 public slots:
     void addTask() const noexcept;
 
 
 };
+
+#endif // MAINWINDOW_H
 

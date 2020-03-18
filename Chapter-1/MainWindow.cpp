@@ -9,9 +9,9 @@
 #include <chrono>
 #include <thread>
 
-static std::size_t count{0};
+static inline std::size_t count{0};
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent) noexcept
     : QMainWindow{ parent }
     , ui{ new Ui::MainWindow }
 {
@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
             this, &MainWindow::addTask);
 }
 
-MainWindow::~MainWindow()
+MainWindow::~MainWindow() noexcept
 {
     delete ui;
 }
@@ -45,7 +45,7 @@ void MainWindow::addTask()  const noexcept
         short sec{3};
         while(sec)
         {
-            std::this_thread::sleep_for(std::chrono::milliseconds(200));
+            std::this_thread::sleep_for(std::chrono::milliseconds(250));
             qDebug() << sec-- ;
         }
 

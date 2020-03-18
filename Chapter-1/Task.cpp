@@ -1,14 +1,37 @@
+// own headers
 #include "Task.h"
 #include "ui_Task.h"
 
-Task::Task(QWidget *parent)
-    : QWidget{ parent }
-    , ui{ new Ui::Task }
+// Qt headers
+
+// C++  headers
+#include <utility> // std::move
+
+
+Task::Task(QString name, QWidget *parent) noexcept
+  : QWidget{ parent }
+  , ui{ new Ui::Task }
 {
-    ui->setupUi(this);
+  this->ui->setupUi(this);
+  this->setName(std::move(name));
 }
 
-Task::~Task()
+Task::~Task() noexcept
 {
-    delete ui;
+  delete ui;
+}
+
+void Task::setName(QString name) noexcept
+{
+  this->ui->checkBox->setText(std::move(name));
+}
+
+QString Task::name() const noexcept
+{
+  return this->ui->checkBox->text();
+}
+
+bool Task::isCompleted() const noexcept
+{
+  return this->ui->checkBox->isChecked();
 }

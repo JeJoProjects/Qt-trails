@@ -1,22 +1,33 @@
 #ifndef TASK_H
 #define TASK_H
 
+// Qt headers
 #include <QWidget>
+#include <QString>
 
+// C++  headers
+
+// forward declarations
 namespace Ui {
-class Task;
+  class Task;
 }
 
-class Task : public QWidget
+class Task final : public QWidget
 {
-    Q_OBJECT
+  Q_OBJECT
 
 private:
-    Ui::Task *ui;
+  Ui::Task *ui;
 
 public:
-    explicit Task(QWidget *parent = nullptr);
-    ~Task();
+  // constructors and destructors
+  explicit Task(QString, QWidget *parent = nullptr) noexcept;
+  ~Task() noexcept;
+  Q_DISABLE_COPY_MOVE(Task);
+
+  void setName(QString) noexcept;
+  QString name() const noexcept;
+  bool isCompleted() const noexcept;
 
 };
 
