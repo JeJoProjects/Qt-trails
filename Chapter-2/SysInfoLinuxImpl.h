@@ -1,17 +1,23 @@
-#pragma once
+#ifndef SYSINFOLINUXIMPL_H
+#define SYSINFOLINUXIMPL_H
+
+// Qt headers
+
+// C++ headers
+
+// forward declarations
+
 
 // Qt headers
 #include <QtGlobal>
 #include <QVector>
-
-// other headers
 #include "SysInfo.h"
 
 class SysInfoLinuxImpl final : public SysInfo
 {
 private:
     // member variable: system timing at a given moment
-    QVector<quint64> _cpuLoadLastValues;
+    QVector<quint64> mCpuLoadLastValues;
 
 private:
     // helper function(s)
@@ -33,3 +39,4 @@ public:
     double memoryUsed() noexcept override;
 };
 
+#endif // SYSINFOLINUXIMPL_H

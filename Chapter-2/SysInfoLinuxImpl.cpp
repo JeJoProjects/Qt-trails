@@ -1,3 +1,12 @@
+// Own headers
+
+// Qt headers
+
+// C++ headers
+
+// forward declarations
+
+
 // C++ headers
 #include <sys/types.h>
 #include <sys/sysinfo.h>
@@ -24,19 +33,19 @@ QVector<quint64> SysInfoLinuxImpl::cpuRowData() noexcept
 }
 
 SysInfoLinuxImpl::SysInfoLinuxImpl()
-    : SysInfo{}, _cpuLoadLastValues{}
+    : SysInfo{}, mCpuLoadLastValues{}
 {}
 
 void SysInfoLinuxImpl::init() noexcept
 {
-    _cpuLoadLastValues = cpuRawData();
+    mCpuLoadLastValues = cpuRawData();
 }
 
 double SysInfoLinuxImpl::cpuLoadAverage() noexcept
 {
-    const QVector<quint64> firstSample = _cpuLoadLastValues;
+    const QVector<quint64> firstSample = mCpuLoadLastValues;
     const QVector<quint64> secondSample = cpuRawData();
-    _cpuLoadLastValues = secondSample;
+    mCpuLoadLastValues = secondSample;
 
     /* https://www.kernel.org/doc/Documentation/filesystems/proc.txt
      * overall is equal to user + nice + kernel

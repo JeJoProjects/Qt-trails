@@ -1,6 +1,17 @@
+// Own headers
 #include "SysInfoWidget.h"
 
-SysInfoWidget::SysInfoWidget(QWidget *parent) : QWidget(parent)
+// Qt headers
+
+// C++ headers
+
+// forward declarations
+
+
+#if 0
+SysInfoWidget::SysInfoWidget(QWidget *parent, int astartDelayMs, int updateSeriesDelayMs)
+  : QWidget{ parent }
 {
 
 }
+#endif

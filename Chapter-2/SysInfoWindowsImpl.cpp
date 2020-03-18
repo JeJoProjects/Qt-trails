@@ -1,8 +1,14 @@
+// Own headers
+#include "SysInfoWindowsImpl.h"
+
+// Qt headers
+
 // C++ headers
 #include <Windows.h>
 
-// own header
-#include "SysInfoWindowsImpl.h"
+// forward declarations
+
+
 
 QVector<quint64> SysInfoWindowsImpl::cpuRowData() noexcept
 {
@@ -23,21 +29,22 @@ quint64 SysInfoWindowsImpl::convertFileTime(const FILETIME &fileTime) const noex
     return largeInteger.QuadPart;
 }
 
-SysInfoWindowsImpl::SysInfoWindowsImpl()
-    : SysInfo{}, _cpuLoadLastValues{}
+SysInfoWindowsImpl::SysInfoWindowsImpl() noexcept
+    : SysInfo{}
+    , mCpuLoadLastValues{}
 {}
 
 
 void SysInfoWindowsImpl::init() noexcept
 {
-    _cpuLoadLastValues = cpuRowData();
+    mCpuLoadLastValues = cpuRowData();
 }
 
 double SysInfoWindowsImpl::cpuLoadAverage() noexcept
 {
-    const QVector<quint64> firstSample = _cpuLoadLastValues;
+    const QVector<quint64> firstSample = mCpuLoadLastValues;
     const QVector<quint64> secondSample = cpuRowData();
-    _cpuLoadLastValues = secondSample;
+    mCpuLoadLastValues = secondSample;
     const quint64 currentIdle = secondSample[0] - firstSample[0];
     const quint64 currentKernel = secondSample[1] - firstSample[1];
     const quint64 currentUser = secondSample[2] - firstSample[2];

@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-CONFIG   += c++14
+CONFIG   += c++17
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,19 +14,15 @@ TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
-SOURCES += main.cpp \
-    MainWindow.cpp \
-    SysInfo.cpp \
-    CpuWidget.cpp \
-    MemoryWidget.cpp \
-    SysInfoWidget.cpp \
+SOURCES += MainApplication.cpp \
+           MainWindow.cpp \
+           SysInfo.cpp \
+           SysInfoWidget.cpp \
 
 
 HEADERS += MainWindow.h \
-    SysInfo.h \
-    CpuWidget.h \
-    MemoryWidget.h \
-    SysInfoWidget.h \
+           SysInfo.h \
+           SysInfoWidget.h \
 
 windows {
     SOURCES += SysInfoWindowsImpl.cpp

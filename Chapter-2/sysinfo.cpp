@@ -1,8 +1,13 @@
-// Qt header
+// Own headers
+#include "SysInfo.h"
+
+// Qt headers
 #include <QtGlobal>
 
-// own header
-#include "SysInfo.h"
+// C++ headers
+
+// forward declarations
+
 
 #ifdef Q_OS_WIN
     #include "SysInfoWindowsImpl.h"
@@ -12,7 +17,12 @@
     #include "SysInfoLinuxImpl.h"
 #endif
 
-SysInfo& SysInfo::instance()
+SysInfo::SysInfo() noexcept
+{
+
+}
+
+SysInfo& SysInfo::instance() noexcept
 {
     #ifdef Q_OS_WIN
         static SysInfoWindowsImpl singleton;
@@ -25,6 +35,8 @@ SysInfo& SysInfo::instance()
 }
 
 
-SysInfo::SysInfo()  {}
 
-SysInfo::~SysInfo() {}
+SysInfo::~SysInfo() noexcept
+{
+
+}

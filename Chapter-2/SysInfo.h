@@ -1,6 +1,13 @@
-#pragma once
+#ifndef SYSINFO_H
+#define SYSINFO_H
 
-/* class SysInfo is a singleton class:
+// Qt headers
+
+// C++ headers
+
+// forward declarations
+
+/** class SysInfo is a singleton class:
  * The singleton must guarantee that there will be only one
  * instance of the class and that this instance will be
  * easily accessible from a single access point.
@@ -15,17 +22,17 @@ private:
      *
      * alternatively(since C++11): can be 'delete'd.
      */
-    SysInfo(const SysInfo &other);
-    SysInfo& operator=(const SysInfo &other);
+    SysInfo(const SysInfo &other) noexcept;
+    SysInfo& operator=(const SysInfo &other) noexcept;
 
 protected:
     // access granted only for the child classes
-    explicit SysInfo();
+    explicit SysInfo() noexcept;
 
 public:
-    static SysInfo& instance();
+    static SysInfo& instance() noexcept;
 
-    virtual ~SysInfo();
+    virtual ~SysInfo() noexcept;
 
     /* allows the derived class to perform
      * any initialization process depending on the OS platform
@@ -42,3 +49,5 @@ public:
      */
      virtual double memoryUsed() noexcept = 0;
 };
+
+#endif // SYSINFO_H

@@ -1,25 +1,35 @@
-#pragma once
+#ifndef SYSINFOWIDGET_H
+#define SYSINFOWIDGET_H
 
 // Qt headers
 #include <QtWidgets>
 #include <QTimer>
 #include <QtCharts/QChartView>
 
+// C++ headers
+
+// forward declarations
+
+
+
 class SysInfoWidget : public QWidget
 {
     Q_OBJECT
 private:
-    QTimer _RefreshTimer;
-    QtCharts::QChartView _ChartView;
+    QTimer mRefreshTimer;
+    QtCharts::QChartView mChartView;
 
 protected slots:
-    virtual void updateSeries() = 0;
+    virtual void updateSeries() noexcept = 0;
 
 protected:
-    QtCharts::QChartView& chartView();
+    QtCharts::QChartView& chartView() noexcept;
 
 public:
+#if 0
     explicit SysInfoWidget(
-            QWidget *parent = nullptr, int startDelayMs = 500, int updateSeriesDelayMs = 500);
+            QWidget *parent = nullptr,int startDelayMs = 500, int updateSeriesDelayMs = 500);
+#endif
 };
 
+#endif // SYSINFOWIDGET_H

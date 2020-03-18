@@ -1,14 +1,22 @@
+// Own headers
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+// Qt headers
+
+// C++ headers
+
+// forward declarations
+
+
+MainWindow::MainWindow(QWidget *parent) noexcept
+  : QMainWindow{ parent }
+  , ui{ new Ui::MainWindow }
 {
-    ui->setupUi(this);
+    this->ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
+MainWindow::~MainWindow() noexcept
 {
     delete ui;
 }
