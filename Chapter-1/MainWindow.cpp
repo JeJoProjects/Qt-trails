@@ -6,14 +6,11 @@
 #include <QDebug>
 
 // C++  headers
-#include <chrono>
-#include <thread>
-
-static inline std::size_t count{0};
 
 MainWindow::MainWindow(QWidget *parent) noexcept
     : QMainWindow{ parent }
     , ui{ new Ui::MainWindow }
+    , mTasks{}
 {
     ui->setupUi(this);
     // basic
@@ -28,26 +25,10 @@ MainWindow::~MainWindow() noexcept
     delete ui;
 }
 
-void MainWindow::addTask()  const noexcept
+void MainWindow::addTask() noexcept
 {
-    if(count < 3)
-    {
-        qDebug() << "The User clicked on the button for " << ++count << " time!";
-        if(count == 3) // third time coonect with the other slot(quit)
-        {
-            connect(ui->addTaskButton, &QPushButton::clicked,
-                    QApplication::instance(), &QApplication::quit);
-        }
-    }
-    else
-    {
-        qDebug() << "Going to exit soon...";
-        short sec{3};
-        while(sec)
-        {
-            std::this_thread::sleep_for(std::chrono::milliseconds(250));
-            qDebug() << sec-- ;
-        }
-
-    }
+  qDebug() << "Adding new task\n";
+  mTasks.push_back(new Task{"Untitled task"});
+  // the ownership of the newly created task is transferred to tasksLayout
+  this->ui->tasksLayout->addWidget(mTasks.back());
 }

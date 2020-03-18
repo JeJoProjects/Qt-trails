@@ -3,6 +3,8 @@
 
 // Qt headers
 #include <QMainWindow>
+#include <QVector>
+#include "Task.h"
 
 // C++  headers
 
@@ -21,6 +23,7 @@ class MainWindow final : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
+    QVector<Task*> mTasks;
 
 public:
     // constructors and destructors
@@ -29,7 +32,7 @@ public:
     Q_DISABLE_COPY_MOVE(MainWindow);
 
 public slots:
-    void addTask() const noexcept;
+    void addTask() noexcept;
 
 
 };
